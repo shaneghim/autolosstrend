@@ -1,0 +1,38 @@
+name: Monthly data update
+
+on:
+  schedule:
+    - cron: "42 15 20 * *"  # 15:42 UTC (about 7:42 am Pacific) on the 20th of every month
+  workflow_dispatch: # adds a "Run workflow" button for running it manually
+
+permissions:
+  contents: write  # lets the workflow save updated files back to the repo
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Run the update script
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: python scripts/update.py
+
+      - name: Save changes back to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898319+github-actions[bot]@users.noreply.github.com"
+          git add data/trend.db images exports
+          git diff --staged --quiet || git commit -m "Monthly data update"
+          git push
