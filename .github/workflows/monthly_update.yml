@@ -2,7 +2,7 @@ name: Monthly data update
 
 on:
   schedule:
-    - cron: "42 15 20 * *"  # 15:42 UTC (about 7:42 am Pacific) on the 20th of every month
+    - cron: "42 15 22 * *"  # 15:42 UTC (about 7:42 am Pacific) on the 22nd of every month. Some of Progressive's filing dates land on the 20th or 21st of the month.
   workflow_dispatch: # adds a "Run workflow" button for running it manually
 
 permissions:
@@ -27,6 +27,7 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python scripts/update.py
 
       - name: Save changes back to the repo
