@@ -1,4 +1,4 @@
-<a href="https://shaneghim.github.io/" style="display:inline-block; padding:4px 14px; border:1px solid #d0d7de; border-radius:999px; color:#24292f; text-decoration:none; font-size:14px;">← All projects</a>
+<a href="https://shaneghim.github.io/" style="display:inline-block;padding:4px 12px;border:1px solid #d6dbe1;border-radius:999px;font-family:Helvetica,Arial,sans-serif;font-size:0.85rem;color:#1f4e79;text-decoration:none;background:#fff;">&larr; All projects</a>
 
 # Auto Insurance Loss Trend Monitor: Are Premiums Keeping Up with Claim Costs?
 
