@@ -1,0 +1,7 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* hide the site name header the theme adds above the README */
+.container-lg > h1:first-child { display: none; }
