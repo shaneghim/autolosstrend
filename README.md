@@ -2,7 +2,7 @@
 
 # Auto Insurance Loss Trend Monitor: Are Premiums Keeping Up with Claim Costs?
 
-This project tracks whether auto insurance premiums are keeping pace with the costs that drive claims. A Python pipeline pulls monthly government price data and Progressive's monthly results, stores them in a SQLite database, fits 3-year and 5-year trend rates, and updates the charts and an Excel summary on its own every month through GitHub Actions
+This project tracks whether auto insurance premiums are keeping pace with the costs that drive claims. A Python pipeline pulls monthly government price data and Progressive's monthly results, stores them in a SQLite database, fits 3-year and 5-year trend rates, and updates the charts and an Excel summary on its own every month through GitHub Actions.
 
 The numbers in our data below are as of the November 2026 update (CPI through September 2026, Progressive through October 2026).
 
