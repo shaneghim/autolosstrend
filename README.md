@@ -8,6 +8,7 @@ The numbers in our data below are as of the November 2026 update (CPI through Se
 [Download the Excel workbook](https://github.com/shaneghim/autolosstrend/raw/main/autolosstrend.xlsx)
 
 [![Monthly data update](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml/badge.svg)](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml)
+
 You can see every run in the [workflow history](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml), and each update is saved as a "Monthly data update" commit.
 
 ![Premiums vs. claim costs](images/premium_vs_severity.png)
