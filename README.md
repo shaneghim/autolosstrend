@@ -10,8 +10,6 @@ The numbers in our data below are as of the November 2026 update (CPI through Se
 
 [Download the Excel workbook](https://github.com/shaneghim/autolosstrend/raw/main/autolosstrend.xlsx)
 
-You can see every run in the [workflow history](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml), and each update is saved as a "Monthly data update" commit.
-
 ![Premiums vs. claim costs](images/premium_vs_severity.png)
 
 **Data**
@@ -21,7 +19,7 @@ You can see every run in the [workflow history](https://github.com/shaneghim/aut
 - **Exposure:** vehicle miles traveled, from the Department of Transportation through FRED.
 - **Insurer results:** Progressive's monthly personal auto results from its 8-K filings on [SEC EDGAR](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000080661&type=8-K), from July 2022 onward.
 
-All CPI series are seasonally adjusted. BLS didn't collect October 2025 prices during the government shutdown, and the insurance series has no row at all for November 2025, so 12-month changes match on the date one year earlier instead of counting rows back.
+All CPI series are seasonally adjusted. BLS didn't collect October 2025 prices during the government shutdown, and the insurance series also skips November 2025 entirely, so 12-month changes match on the date one year earlier instead of counting rows back.
 
 <ins>Terminology</ins>
 
@@ -55,7 +53,7 @@ To see whether these trends show up in an actual insurer's results, I compared t
 
 **Results**
 
-| Window | Claim cost trend | Premium trend | Gap | Claim cost factor | Premium factor |
+| Window | Claim cost trend | Premium trend | Premium minus claim cost | Claim cost factor | Premium factor |
 |---|---:|---:|---:|---:|---:|
 | 3 years | 3.1% | 2.8% | -0.3 pts | 1.071 | 1.064 |
 | 5 years | 2.9% | 10.6% | +7.7 pts | 1.066 | 1.254 |
@@ -64,7 +62,7 @@ To see whether these trends show up in an actual insurer's results, I compared t
 
 **Findings**
 
-Over 5 years, premiums grew 10.6% a year against 2.9% for claim costs, as insurers caught up after the 2021 and 2022 cost spike. Premium growth peaked at 22.6% in April 2024. Over 3 years, the two have roughly kept pace: the gap stays within 0.3 points of zero across all four weightings and turns positive when total losses get more weight.
+Over 5 years, premiums grew 10.6% a year against 2.9% for claim costs, as insurers caught up after the 2021 and 2022 cost spike. Premium growth peaked at 22.6% in April 2024. Over 3 years, the two have roughly kept pace: the gap stays within 0.3 points of zero across all four weightings and turns positive when total losses get more weight. Projected over the 2.25-year trend period, claim costs would rise about 7.1% and premiums about 6.4% at their 3-year pace. Miles traveled grew only about 1% a year, so exposure stayed fairly steady.
 
 The past year looks different. As of September 2026, premiums were down 5.0% from a year earlier while repair costs rose 5.8% and medical 1.5%, and claim costs have grown faster than premiums every month since August 2025.
 
@@ -74,7 +72,7 @@ Progressive's results follow the same cycle. Its 12-month personal auto loss rat
 
 **Automation and Excel**
 
-On the 22nd of every month, GitHub Actions runs `scripts/update.py`, which pulls the latest data, recalculates every table, redraws the charts, and saves the results back to this repo. The Excel workbook (`autolosstrend.xlsx`) reads the CSVs in `exports/` through Power Query and refreshes when it opens, with a summary sheet built on XLOOKUP and FILTER.
+On the 22nd of every month, GitHub Actions runs `scripts/update.py`, which pulls the latest data, recalculates every table, redraws the charts, and saves the results back to this repo. The Excel workbook (`autolosstrend.xlsx`) reads the CSVs in `exports/` through Power Query and refreshes when it opens, with a summary sheet built on XLOOKUP and FILTER. You can see every run in the [workflow history](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml), and each update is saved as a "Monthly data update" commit.
 
 **Files**
 
