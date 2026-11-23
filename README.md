@@ -5,6 +5,9 @@
 This project tracks whether auto insurance premiums are keeping pace with the costs that drive claims. A Python pipeline pulls monthly government price data and Progressive's monthly results, stores them in a SQLite database, fits 3-year and 5-year trend rates, and updates the charts and an Excel summary on its own every month through GitHub Actions.
 
 The numbers in our data below are as of the November 2026 update (CPI through September 2026, Progressive through October 2026).
+[Download the Excel workbook](https://github.com/shaneghim/autolosstrend/raw/main/autolosstrend.xlsx)
+[![Monthly data update](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml/badge.svg)](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml)
+You can see every run in the [workflow history](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml), and each update is saved as a "Monthly data update" commit.
 
 ![Premiums vs. claim costs](images/premium_vs_severity.png)
 
