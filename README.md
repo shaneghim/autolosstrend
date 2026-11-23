@@ -6,6 +6,7 @@ This project tracks whether auto insurance premiums are keeping pace with the co
 
 The numbers in our data below are as of the November 2026 update (CPI through September 2026, Progressive through October 2026).
 [Download the Excel workbook](https://github.com/shaneghim/autolosstrend/raw/main/autolosstrend.xlsx)
+
 [![Monthly data update](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml/badge.svg)](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml)
 You can see every run in the [workflow history](https://github.com/shaneghim/autolosstrend/actions/workflows/monthly_update.yml), and each update is saved as a "Monthly data update" commit.
 
